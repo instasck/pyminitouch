@@ -107,6 +107,7 @@ class MNTServer(object):
             'localabstract:minitouch'
         ]
         logger.info('forward command: {}'.format(' '.join(command_list)))
+        subprocess.check_output(command_list)
         assert not subprocess.check_output(command_list)
 
     def _start_mnt(self):
