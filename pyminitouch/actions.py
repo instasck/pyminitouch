@@ -5,7 +5,7 @@ from pyminitouch.logger import logger
 from pyminitouch.connection import MNTConnection, MNTServer, safe_connection
 from pyminitouch import config
 from pyminitouch.utils import restart_adb
-
+from random import randint
 
 class CommandBuilder(object):
     """Build command str for minitouch.
@@ -188,7 +188,7 @@ class MNTDevice(object):
 
             # add delay between points
             if duration:
-                _builder.wait(randomint(0, 0.1*duration)+duration)
+                _builder.wait(randint(0, 0.1*duration)+duration)
             _builder.commit()
 
         _builder.publish(self.connection)
